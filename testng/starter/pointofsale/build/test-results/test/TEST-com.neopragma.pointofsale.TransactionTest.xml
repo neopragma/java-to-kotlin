@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.neopragma.pointofsale.TransactionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-10-09T18:02:22" hostname="Neos-MacBook-Air.local" time="0.013">
+  <properties/>
+  <testcase name="it_calculates_total_price_with_1_line_item_non_taxable" classname="com.neopragma.pointofsale.TransactionTest" time="0.005"/>
+  <testcase name="it_calculates_total_price_with_2_line_items_taxable" classname="com.neopragma.pointofsale.TransactionTest" time="0.006"/>
+  <testcase name="it_calculates_total_price_with_a_mixture_of_taxable_and_non_taxable_items" classname="com.neopragma.pointofsale.TransactionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

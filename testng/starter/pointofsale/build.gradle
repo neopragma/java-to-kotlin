@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.4.5'
+    }
+}
+
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'org.unbroken-dome.test-sets'
+
+repositories {
+    mavenCentral()
+}
+
+testSets {
+    integrationTest { dirName = 'integration-test' }
+}
+
+group 'com.neopragma'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'org.javamoney:moneta:1.3'
+    testCompile 'org.testng:testng:6.14.3'
+    testCompile 'org.mockito:mockito-core:2.23.0'
+}
+
+test {
+    useTestNG()
+}
+
+integrationTest {
+    useTestNG()
+}
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
