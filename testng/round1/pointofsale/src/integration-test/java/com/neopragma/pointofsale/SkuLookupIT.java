@@ -11,11 +11,27 @@ public class SkuLookupIT {
     private SkuAdapter service = new SkuAdapter();
 
     @Test
-    public void it_finds_a_valid_sku() {
+    public void find_finds_a_valid_sku() {
         sku = service.find("ABC12346");
+        assertSkuFound("ABC12346", "ACME Portable Holes (3-pack)");
+    }
+
+    @Test
+    public void findBySKU_finds_a_valid_sku() {
+        sku = service.findBySKU("ABC12346");
+        assertSkuFound("ABC12346", "ACME Portable Holes (3-pack)");
+    }
+
+    @Test
+    public void findByUPC_finds_a_valid_sku() {
+        sku = service.findByUPC("999ABC12346");
+        assertSkuFound("ABC12346", "ACME Portable Holes (3-pack)");
+    }
+
+    private void assertSkuFound(String expectedSku, String expectedDescription) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(sku.value(), "ABC12346");
-        softAssert.assertEquals(sku.description(), "ACME Portable Holes (3-pack)");
+        softAssert.assertEquals(sku.value(), expectedSku);
+        softAssert.assertEquals(sku.description(), expectedDescription);
         softAssert.assertAll();
     }
 

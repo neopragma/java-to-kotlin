@@ -1,15 +1,17 @@
 package com.neopragma.pointofsale;
 
+import org.javamoney.moneta.Money;
+
 import javax.money.MonetaryAmount;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transaction {
+class Transaction {
 
     private List<LineItem> lineItems;
 
     Transaction() {
-        lineItems = new ArrayList<LineItem>(0);
+        lineItems = new ArrayList<>(0);
     }
 
     void addLineItem(LineItem lineItem) {
@@ -20,6 +22,6 @@ public class Transaction {
         return lineItems.stream()
                 .map(LineItem::extendedPrice)
                 .reduce(MonetaryAmount::add)
-                .get();
+                .orElse(Money.of(0, Constants.USD));
     }
 }
