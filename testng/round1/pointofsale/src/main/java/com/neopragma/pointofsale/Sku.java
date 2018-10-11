@@ -18,11 +18,11 @@ public class Sku {
         return value;
     }
 
-    public String description() {
+    String description() {
         return description;
     }
 
-    public boolean isTaxable() {
+    boolean isTaxable() {
         return value.startsWith("A");
     }
 }
