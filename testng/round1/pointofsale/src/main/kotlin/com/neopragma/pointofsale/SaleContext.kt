@@ -5,6 +5,7 @@ open class SaleContext(state: SaleState) {
     var transaction : Transaction = Transaction()
     var state : SaleState = SaleIdleState()
     var previousState : SaleState = SaleIdleState()
+    var receipt : Receipt = Receipt()
 
     fun transitionTo(state : SaleState) {
         when (this.state) {

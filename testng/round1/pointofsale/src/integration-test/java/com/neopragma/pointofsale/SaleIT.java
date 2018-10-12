@@ -42,6 +42,8 @@ public class SaleIT {
                 getContext().getState().getClass().getSimpleName(),
                 "SaleIdleState",
                 "System should be ready for the next sale.");
+        softAssert.assertEquals(
+                getContext().getReceipt().getReceiptLines().size(), 3);
 
 
 

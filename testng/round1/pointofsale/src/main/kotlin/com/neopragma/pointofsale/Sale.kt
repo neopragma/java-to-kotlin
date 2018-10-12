@@ -11,25 +11,25 @@ fun newSale() {
     context.process(SaleEventType.START_TRANSACTION)
 }
 
-/** Respond to UPC entry with quantity and price entered by cashier */
+/** Respond to UPC entry with quantity and unitPrice entered by cashier */
 fun ringUpUPC(upc: String, price: MonetaryAmount, quantity: Int) {
     var sku : Sku = lookUpSku(upc)
     processLineItem(sku, price, quantity);
 }
 
-/** Respond to UPC entry, default quantity 1, price entered by cashier */
+/** Respond to UPC entry, default quantity 1, unitPrice entered by cashier */
 fun ringUpUPC(upc: String, price: MonetaryAmount) {
     var sku : Sku = lookUpSku(upc)
     processLineItem(sku, price, 1)
 }
 
-/** Respond to UPC entry, default price from Sku, quantity entered by cashier */
+/** Respond to UPC entry, default unitPrice from Sku, quantity entered by cashier */
 fun ringUpUPC(upc: String, quantity: Int) {
     var sku : Sku = lookUpSku(upc)
     processLineItem(sku, sku.price(), quantity)
 }
 
-/** Respond to UPC entry, default price from Sku, default quantity 1 */
+/** Respond to UPC entry, default unitPrice from Sku, default quantity 1 */
 fun ringUpUPC(upc: String) {
     var sku : Sku = lookUpSku(upc)
     processLineItem(sku, sku.price(), 1)

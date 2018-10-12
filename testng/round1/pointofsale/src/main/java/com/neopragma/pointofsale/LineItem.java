@@ -4,9 +4,9 @@ import javax.money.MonetaryAmount;
 
 class LineItem {
 
-    private Sku sku;
-    private MonetaryAmount price;
-    private Integer quantity;
+    Sku sku;
+    MonetaryAmount price;
+    Integer quantity;
 
     LineItem(Sku sku, MonetaryAmount price, Integer quantity) {
         this.sku = sku;

@@ -1,7 +1,5 @@
 package com.neopragma.pointofsale
 
-import java.lang.IllegalArgumentException
-
 class SaleCaptureState : SaleState() {
 
     override fun handle(context: SaleContext, event: SaleEventType, payload : Any) {
