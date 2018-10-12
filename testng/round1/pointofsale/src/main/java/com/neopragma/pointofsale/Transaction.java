@@ -6,7 +6,7 @@ import javax.money.MonetaryAmount;
 import java.util.ArrayList;
 import java.util.List;
 
-class Transaction {
+public class Transaction {
 
     private List<LineItem> lineItems;
 
