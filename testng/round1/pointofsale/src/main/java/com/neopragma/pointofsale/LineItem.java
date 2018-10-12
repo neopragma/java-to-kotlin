@@ -21,4 +21,8 @@ class LineItem {
         }
         return extendedPrice;
     }
+
+    public Sku getSku() {
+        return sku;
+    }
 }

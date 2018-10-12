@@ -1,15 +1,17 @@
 package com.neopragma.pointofsale
 
+import java.lang.IllegalArgumentException
+
 class SaleCompleteState : SaleState() {
 
-    override fun handle(context: SaleContext, event: SaleEventType, payload : Any) {
+    override fun handle(context: SaleContext, event: SaleEventType) {
+
+        println("SaleCompleteState.handle(), event is ${event.name}")
+
         when (event) {
             SaleEventType.CLOSE_TRANSACTION -> {
-                finalCalculations(context, payload)
+                prepareReceipt()
                 context.transitionTo(SaleIdleState())
-            }
-            SaleEventType.COMPLETE_TRANSACTION -> {
-                finalCalculations(context, payload)
             }
             SaleEventType.CANCEL_TRANSACTION -> {
                 context.transitionTo(SaleCancelState())
@@ -20,7 +22,11 @@ class SaleCompleteState : SaleState() {
         }
     }
 
-    fun finalCalculations(context: SaleContext, payload: Any) {
+    override fun handle(context: SaleContext, event: SaleEventType, payload: Any) {
+        throw IllegalArgumentException("SaleCompleteState.handle() cannot accept a payload argument.")
+    }
+
+    fun prepareReceipt() {
 
     }
 

@@ -1,6 +1,8 @@
 package com.neopragma.pointofsale.adapters
 
+import com.neopragma.pointofsale.Constants
 import com.neopragma.pointofsale.Sku
+import org.javamoney.moneta.Money
 
 import java.util.HashMap
 import java.util.stream.Collectors
@@ -14,9 +16,9 @@ class SkuAdapter {
 
     init {
         skuData = HashMap()
-        skuData["999BBC12345"] = Sku("BBC12345", "ACME Bird Seed")
-        skuData["999ABC12346"] = Sku("ABC12346", "ACME Portable Holes (3-pack)")
-        skuData["999ABC12347"] = Sku("ABC12347", "ACME Dynamite (case)")
+        skuData["999BBC12345"] = Sku("BBC12345", Money.of(11, Constants.USD), "ACME Bird Seed")
+        skuData["999ABC12346"] = Sku("ABC12346", Money.of(15.75, Constants.USD), "ACME Portable Holes (3-pack)")
+        skuData["999ABC12347"] = Sku("ABC12347", Money.of(19.50, Constants.USD),"ACME Dynamite (case)")
     }
 
     fun findByUPC(upc: String): Sku {
@@ -39,7 +41,7 @@ class SkuAdapter {
     }
 
     companion object {
-        private val DEFAULT_SKU = Sku("AAA00000", "Undefined SKU")
+        private val DEFAULT_SKU = Sku("AAA00000", Money.of(1, Constants.USD), "Undefined SKU")
     }
 
 }

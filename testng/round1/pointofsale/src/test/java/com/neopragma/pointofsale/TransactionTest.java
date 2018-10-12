@@ -12,7 +12,8 @@ public class TransactionTest {
         Transaction transaction = new Transaction();
         transaction.addLineItem(Helpers.nonTaxableLineItem());
         MonetaryAmount totalPrice = Money.of(10, "USD");
-        Assert.assertEquals(transaction.finalSalesPrice(), totalPrice);
+        transaction.finalSalesPrice();
+        Assert.assertEquals(transaction.getFinalSalesAmount(), totalPrice);
     }
 
     @Test
@@ -21,7 +22,8 @@ public class TransactionTest {
         transaction.addLineItem(Helpers.taxableLineItem());
         transaction.addLineItem(Helpers.taxableLineItem());
         MonetaryAmount totalPrice = Money.of(28.21, Constants.USD);
-        Assert.assertEquals(transaction.finalSalesPrice(), totalPrice);
+        transaction.finalSalesPrice();
+        Assert.assertEquals(transaction.getFinalSalesAmount(), totalPrice);
     }
 
     @Test
@@ -30,7 +32,8 @@ public class TransactionTest {
         transaction.addLineItem(Helpers.nonTaxableLineItem());
         transaction.addLineItem(Helpers.taxableLineItem());
         MonetaryAmount totalPrice = Money.of(24.105, Constants.USD);
-        Assert.assertEquals(transaction.finalSalesPrice(), totalPrice);
+        transaction.finalSalesPrice();
+        Assert.assertEquals(transaction.getFinalSalesAmount(), totalPrice);
     }
 
 }

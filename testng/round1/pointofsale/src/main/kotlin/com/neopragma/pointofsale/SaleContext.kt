@@ -1,7 +1,8 @@
 package com.neopragma.pointofsale
 
-class SaleContext(state: SaleState) {
+open class SaleContext(state: SaleState) {
 
+    var transaction : Transaction = Transaction()
     var state : SaleState = SaleIdleState()
     var previousState : SaleState = SaleIdleState()
 
@@ -16,6 +17,10 @@ class SaleContext(state: SaleState) {
 
     fun process(event : SaleEventType, payload : Any) {
         state.handle(this, event, payload)
+    }
+
+    fun process(event : SaleEventType) {
+        state.handle(this, event)
     }
 
 }
