@@ -17,16 +17,6 @@ The repository is structured as follows:
 ```shell
 java-to-kotlin/
   |
-  +-- junit4
-  |     |
-  |     +-- starter 
-  |     |     |
-  |     |     + (initial Java code base)
-  |     |
-  |     +-- round1
-  |           |
-  |           + (first round of changes)
-  |
   +-- testng
   |     |
   |     +-- starter
